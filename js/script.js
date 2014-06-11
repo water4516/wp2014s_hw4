@@ -22,10 +22,9 @@ FB.getLoginStatus(function(response) {
 	uid = response.authResponse.userID;
 	accessToken = response.authResponse.accessToken;
 	FB.api('/me/picture?type=normal', function(response) { // normal/large/squere 
-		var str="<img id=preview1 crossOrigin='Anonymous' src="+ response.data.url +">";
-		$('body').append(str);
+		var str=response.data.url;
+		$("#preview1").attr('src',str);
 	});
-	alertify.alert(response.data.url);
   } else if (response.status === 'not_authorized') {
     //要求使用者登入，索取publish_actions權限
 	console.log("this user is not authorizied your apps");
