@@ -21,7 +21,7 @@ FB.getLoginStatus(function(response) {
     //呼叫api把圖片放到#preview IMG tag 內
 	uid = response.authResponse.userID;
 	accessToken = response.authResponse.accessToken;
-	FB.api('/me/picture', function (response) {
+	FB.api('/me/picture?type=normal', function (response) {
 		var str="<img src="+ response.data.url +">";
 		$('preview1').append(str);
 	});
